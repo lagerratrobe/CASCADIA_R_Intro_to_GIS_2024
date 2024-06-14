@@ -527,17 +527,16 @@ Finally, we can combine maps for CONUS and your region of interest using the [`p
 
 ```{r, fig.height = 9, fig.width=9.5}
 # Combine maps using patchwork (ToDo - this still doesn't run [Roger])
-#both_modVobs <- conus_modVobs / zoom_modVobs +
-#  plot_layout(guides = "collect", widths = c(2, 1))
-#both_modVobs
+both_modVobs <- conus_modVobs / zoom_modVobs +
+  plot_layout(guides = "collect", widths = c(2, 1))
+both_modVobs
 ```
 
 Save your map and see what you think. Feel free to adjust the theme, plot dimensions, or anything else to improve the map.
 
 ```{r}
-# ToDo - Above code block needs to be fixed for this to work [Roger]
-# ggsave(both_modVobs, filename = "../plots/Lilac_leaf_out_modelVsObs_2018_2.png", 
-#        dpi = 300, units = c('in'), width = 9, height = 9)
+ggsave(both_modVobs, filename = "../plots/Lilac_leaf_out_modelVsObs_2018_2.png", 
+       dpi = 300, units = c('in'), width = 9, height = 9)
 ```
 
 Note: Other options for combining plots include functions in the [`ggpubr`](https://rpkgs.datanovia.com/ggpubr/) \[`ggarrange()`\] and [`cowplot`](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) \[`plot_grid()`\] packages.
