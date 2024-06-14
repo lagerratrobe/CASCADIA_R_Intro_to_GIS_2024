@@ -45,34 +45,40 @@ knitr::include_graphics("../images/intro_me.jpg")
 :::
 :::
 
-## About us: Roger Andre
+## About us: Roger André
 
 ::: columns
 ::: {.column width="40%"}
-```{r, echo = FALSE, out.width = "500px"}
-knitr::include_graphics("../images/intro_me.jpg")
+```{r, echo = FALSE, out.width = "250px"}
+knitr::include_graphics("../images/roger/roger.jpg")
 ```
 :::
 
 ::: {.column width="60%"}
-**Current position**\
-- Asst. Research Professor, OSU\
-<br/> **Research interests**\
-- Modeling, ecology, biogeography, conservation\
-<br/> **Hobbies**\
-- Running, hiking, biking, moving!\
-- Gardening, native habitat restoration\
-- Artistic and creative endeavors\
-<br/> **R Community**\
-- Co-organize "Aggregate" meetups\
-- Co-organize Cascadia R Conference
+#### Current position
+
+  - `Business Analysis Manager, T-Mobile`
+
+#### Interests
+
+  - `Open Source GIS, R Data Science`
+
+#### Hobbies
+
+  - `Fly fishing, woodworking`
+
+#### Previous Talks
+
+  - [`Using RStudio for Geospatial Analysis`](https://lagerratrobe.quarto.pub/rstudio-for-practical-geospatial-analysis/#/title-slide)
+  - [`Thoughts on Parallelization in R`](https://lagerratrobe.quarto.pub/thoughts-on-paralleliaztion-in-r/#/title-slide)
+  - [`Using GDAL for Data Processing and Analysis`](https://upload.osgeo.org/gdal/presentations/OpenSource_Weds_Andre_CUGOS.pdf)
 :::
 :::
 
 ## Outline of workshop
 
 -   \~15 min: introductory lecture\
--   Part 1: title of Roger's exercise
+-   Part 1: Introduction to sf package
 -   Part 2: Mapping raster and vector data
 
 ```{r, out.width = "650px", echo=FALSE, fig.align="left", fig.cap="Source: Zia Ahmed"}
