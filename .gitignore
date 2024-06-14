@@ -50,4 +50,5 @@ rsconnect/
 
 # Workshop specific
 *.Rproj
+*_files
 
