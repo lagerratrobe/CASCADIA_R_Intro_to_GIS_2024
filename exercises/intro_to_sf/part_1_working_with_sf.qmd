@@ -1,6 +1,6 @@
 ---
 title: "Working with Vector Data, Part 1"
-date: "2024-6-2"
+date: today
 author: "Roger Andre"
 fig-cap-location: top
 format:
