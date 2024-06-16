@@ -59,7 +59,7 @@ As, we can see, `read.csv()` did what it could to infer what the data types shou
 
 library(sf)
 
-wa_lakes <- st_as_sf(wa_lakes,                      # create "sf" object class
+wa_lakes <- st_as_sf(wa_lakes,                   # create "sf" object class
                      coords = c("PRIM_LONG_DEC", # "X" field
                                 "PRIM_LAT_DEC"), # "Y" field
                      crs = 4326)                 # Projection to define
@@ -237,3 +237,57 @@ plot(county_buffer_intersection$geometry, border = "red", col = "pink", add = TR
 ```
 
 _Something else to remember is that `st_intersection` is generally slower than `st_intersects`, since it has to do more work to actually process geometry._
+
+---------------------
+
+### __Practice 1. Create sf features from coordinates. Calculate the distance between Paris, FR and Moscow RU.__  
+Uncomment and use the partially filled-in example below to help you get started.
+
+```{r}
+#| echo: true
+#| message: false
+
+cities <- read.table(header = TRUE, text = "
+city  country  lat  lon
+Paris  France  48.856667 2.352222
+Moscow  Russia 55.755833 37.617222
+Yekaterinburg Russia 56.835556 60.612778
+")
+
+# Create an sf object with geometry
+#cities_sf <- st_as_sf(cities, <blank> = c("lon", "lat"), crs = 4326)
+
+# Calculate the distance in KM
+#st_<blank>(cities_sf[1,], cities_sf[2,]) |> units::set_units("km")
+```
+
+------------------------------
+
+### __Practice 2. Create a 2500km buffer around Paris. Plot both the buffer geometry and the city points. Label them.  (Don't forget to reproject)__
+
+```{r}
+#| echo: true
+#| message: false
+
+# Reproject cities_sf to ESRI:102013
+#cities_albers <- st_<blank>(cities_sf, crs = 'ESRI:102013')
+
+# Create a 2500km buffer around Paris
+#paris_buffer <- st_<blank>(cities_albers[1,], (2500 * 1000))
+
+# Plot
+#plot(paris_buffer$<blank>)
+#plot(cities_albers$geometry, pch=20, add = TRUE)
+#text(st_coordinates(cities_albers), pos=1, cities_albers$<blank>, cex=0.75)
+```
+
+------------------------------------
+
+### __Practice 3. Prove that that Moscow is within the paris_buffer using `st_intersects`. Prove that Yekaterinburg is not.__
+
+```{r}
+#| echo: true
+#| message: false
+
+#st_<blank>(paris_buffer$geometry, cities_albers, sparse = FALSE)
+```
