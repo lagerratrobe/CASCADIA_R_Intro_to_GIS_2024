@@ -315,12 +315,14 @@ We're going to run into issues due to differing coordinate reference
 systems (CRS) of `states` and `lilacModel_r`. You can see these
 differences by using the `crs()` function on both objects.
 
+CRS of `states`.
+
 ```{r}
 # CRS of states
 
 ```
 
-CRS of raster data.
+CRS of `lilacModel_r`.
 
 ```{r}
 # CRS of lilacModel_r

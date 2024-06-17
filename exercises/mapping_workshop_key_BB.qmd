@@ -326,7 +326,11 @@ plot(states[1])
 Answer: the class is both `sf` and `data.frame`. The `sf` portion
 contains geographic information such as geometry, extent, and CRS,
 whereas the data frame has associated data, such as state names and
-abbreviations.
+abbreviations. In contrast, `lilcModel_r` is raster data contained in a
+`SpatRaster` object. The raster data are gridded and cover the entire
+CONUS, whereas the sf data are a vector of state boundaries. The two
+datasets are similar in that they have a CRS, a geographic extent, and
+spatial information.
 
 ------------------------------------------------------------------------
 
@@ -334,12 +338,14 @@ We're going to run into issues due to differing coordinate reference
 systems (CRS) of `states` and `lilacModel_r`. You can see these
 differences by using the `crs()` function on both objects.
 
+CRS of `states`.
+
 ```{r}
 # CRS of states
 crs(states)
 ```
 
-CRS of raster data.
+CRS of `lilacModel_r`.
 
 ```{r}
 # CRS of lilacModel_r
