@@ -59,7 +59,7 @@ states <- st_read("../../data/intro_to_sf/cb_2018_us_state_20m.shp")
 
 --------------------------------------
 
-#### __2. Reproject the data into someting more suitable for spatial analysis__
+#### __2. Re-project the data into something more suitable for spatial analysis__
 ```{r}
 #| echo: true
 #| message: false

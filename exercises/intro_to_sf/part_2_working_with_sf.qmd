@@ -200,7 +200,7 @@ plot(within_55km_rsv$geometry, col = "blue", pch=20, add = TRUE)
 
 #### 4. Other ways to do it?
 
-We used `st_intersects` above to find all the points in the buffer, could we have used something else?  Well yes, we could also have used `st_intsersection` instead...
+We used `st_intersects` above to find all the points in the buffer, but could we have used something else?  Well yes, we could also have used `st_intsersection` instead...
 
 ```{r}
 #| echo: true
