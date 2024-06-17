@@ -68,7 +68,7 @@ using the `rast()` function in `terra`.
 lilacModel_r <- rast("../data/lilac_2018_model.tiff")
 ```
 
-Check out attributes of the raster, such as it's class, coordinate
+Check out the attributes of the raster, such as it's class, coordinate
 reference system (crs), class, extent, and range of values correspond to
 the day in which lilac leaf out was predicted to occur in `2018`.
 
