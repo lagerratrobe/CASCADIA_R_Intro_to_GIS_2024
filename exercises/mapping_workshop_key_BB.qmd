@@ -128,7 +128,8 @@ plot(lilacModel_r2, type="classes", col = rev(viridis::viridis(length(classes)))
 ------------------------------------------------------------------------
 
 [**Question 1**]{.underline}**:** How does predicted lilac leaf out vary
-across the contiguous U.S.? Any ideas what may explain these patterns?
+across the contiguous U.S. (CONUS)? Any ideas what may explain these
+patterns?
 
 Answer: Leaf out occurs earlier in southern latitudes because warmer
 temperatures there drive faster development.
@@ -362,9 +363,8 @@ crs(states)
 ```
 
 Next, use `st_crop()` to crop your states feature to the same extent as
-your raster, which is the contiguous U.S. (CONUS). Check out the
-results. What happens if you skip the `st_transform()` step and run this
-code?
+your raster, which is CONUS. Check out the results. What happens if you
+skip the `st_transform()` step and run this code?
 
 ```{r}
 # Crop to CONUS
@@ -491,7 +491,7 @@ We can add more layers to our map to ask certain questions, such as: How
 do model-predicted dates of lilac leaf out compared with observed dates?
 Below, we import phenometric data for observed lilac leaf out dates for
 2018. These data were collected by volunteers and submitted to the USA
-National Phenology Network's database
+National Phenology Network's database.
 
 ```{r}
 # Phenometric data
@@ -513,9 +513,9 @@ length(unique(lilacObs_df$site_id))
 
 We only need data in three columns in the phenometric data: `longitude`,
 `latitude`, and `first_yes_doy`. The `first_yes_doy` column specifies
-which day of year that lilacs first had leaf out at the site. We'll
-subset the columns using `select()` and take a look at the first several
-rows of data.
+the day of year when first lilac leaf out was observed. We'll subset the
+columns using `select()` and take a look at the first several rows of
+data.
 
 ```{r}
 lilacObs_df <- lilacObs_df %>%
@@ -588,7 +588,7 @@ conus_modVobs
 ```
 
 Save your map using `ggsave()` and see how it looks. If you're not happy
-with it, adjust the image dimensions of change the plot theme (i.e.,
+with it, adjust the image dimensions or change the plot theme (i.e.,
 `my_theme`).
 
 ```{r}
@@ -697,7 +697,7 @@ Note: Other options for combining plots include functions in the
 There are numerous functions in `terra` for extracting, manipulating,
 and analyzing raster data. Here, we'll use the `extract` function to
 extract model predictions (predicted day of year) from the precise
-location where lilac observations (observed day of year) were collected.
+location where lilac observations were collected (observed day of year).
 This allows us to further compare the two datasets.
 
 Extract the predictions, convert results to a data frame, and rename the
@@ -709,7 +709,6 @@ lilacObs_extr <- extract(lilacModel_r, lilacObs_sf) %>%
   as.data.frame() %>%
   rename("leaf_out_doy" = "layer") %>%
   as.data.frame() # 
-
 ```
 
 Next, we can estimate the extent to which the model under-predicts vs.
@@ -717,6 +716,7 @@ over-predicts the date of lilac leaf out by subtracting the
 `leaf_out_doy` columns.
 
 ```{r}
+# Differences (in days) between predicted and observed lilac leaf out
 differences <- lilacObs_extr$leaf_out_doy - lilacObs_sf$leaf_out_doy 
 ```
 
@@ -815,4 +815,6 @@ Parts of these exercises were modified from a tutorial for the
 package created by Alyssa Rosemartin. Raster and observation data used
 for the demo were downloaded from the USA National Phenology Network's
 servers using `rnpn`. Thanks to Roger Andre for providing helpful
-feedback on earlier versions of this document.
+feedback on earlier versions of this document. This work was funded by
+the USDA National Institute of Food and Agriculture (NIFA) Agriculture
+and Food Research Initiative (AFRI) grant no. 2022-68013-37138.
